@@ -18,5 +18,22 @@ const About: React.FC = () => {
       <p style={{ maxWidth: '800px', lineHeight: '1.6', marginBottom: '1.5rem' }}>
         Custom modifications include one-time funding logic, fallback mechanisms for rejected work, and timeout-based payout options to ensure funds are never stuck.
       </p>
-      <p style={{ maxWidth: '800px', lineHeight: '1.6' }}>
-        I wanted this build to reflect a commitment to fairness and usability — for both freelancers and clients. It blends clean automation with thought
+      <p style={{ maxWidth: '800px', lineHeight: '1.6', marginBottom: '1.5rem' }}>
+        I wanted this build to reflect a commitment to fairness and usability — for both freelancers and clients. It blends clean automation with thoughtful protections.
+      </p>
+      <div style={{
+        marginTop: '2rem',
+        background: '#ffeedd',
+        padding: '1rem',
+        borderRadius: '6px'
+      }}>
+        <h2 style={{ marginBottom: '0.5rem' }}>⚠️ Style Preview Disclaimer</h2>
+        <p>
+          Tailwind styling is present in the codebase but may not be rendered in Bolt’s live preview. Exporting the project or running locally will show the full visual design.
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default About;
