@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Shield, Menu, X, Wallet } from 'lucide-react';
 import WalletConnect from './WalletConnect';
 
+
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
@@ -11,6 +12,7 @@ const Navbar: React.FC = () => {
     { path: '/', label: 'Home' },
     { path: '/client-dashboard', label: 'Client Dashboard' },
     { path: '/freelancer-dashboard', label: 'Freelancer Dashboard' },
+    { path: '/about', label: 'About' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
