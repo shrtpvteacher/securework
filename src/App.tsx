@@ -13,7 +13,8 @@ function App() {
     <WalletProvider>
       <JobProvider>
         <Router>
-          <div className="min-h-screen bg-gradient-to-b from-[#f8f6ef] via-[#d3af6c] to-[#3b024d] text-gray-900">
+         <div className="min-h-screen bg-gradient-to-b from-slate-100 via-yellow-300 to-purple-800 text-gray-900">
+
             <Navbar />
             <Routes>
               <Route path="/" element={<HomePage />} />
