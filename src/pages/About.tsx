@@ -50,13 +50,13 @@ const About: React.FC = () => {
 
         <div style={{ marginTop: '2.5rem', textAlign: 'center' }}>
           <a
-            href="https://bolt.new"
+           href="https://bolt.new"
             target="_blank"
             rel="noopener noreferrer"
             style={{ display: 'inline-block', textDecoration: 'none' }}
           >
             <img
-              src="https://bolt.new/seal-light.svg"
+              src="https://www.bolt.new/seal-light.svg"href="https://bolt.new"
               alt="Built with Bolt.new"
               style={{ height: '40px' }}
             />
