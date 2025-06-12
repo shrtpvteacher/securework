@@ -48,18 +48,19 @@ const About: React.FC = () => {
           This project reflects a commitment to fairness and usability — for both freelancers and clients. It blends clean automation with thoughtful protections to avoid centralized gatekeeping.
         </p>
 
-        <div style={{ marginTop: '2.5rem', textAlign: 'center' }}>
-          <a
-           href="https://bolt.new"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ display: 'inline-block', textDecoration: 'none' }}
-          >
-            <img
-              src="https://www.bolt.new/seal-light.svg"
-              alt="Built with Bolt.new"
-              style={{ height: '40px' }}
-            />
+       
+          <div style={{ marginTop: '2.5rem', textAlign: 'center' }}>
+  <a
+    href="https://bolt.new"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{ display: 'inline-block', textDecoration: 'none' }}
+  >
+    <img
+      src="https://raw.githubusercontent.com/openbolt/bolt-badge/main/seal-light.svg"
+      alt="Bolt.new badge"
+      style={{ height: '40px' }}
+    />
             <div style={{ fontSize: '0.85rem', color: '#555', marginTop: '0.25rem' }}>
               Proudly built using Bolt.new
             </div>
