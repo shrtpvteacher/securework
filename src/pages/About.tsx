@@ -2,36 +2,67 @@ import React from 'react';
 
 const About: React.FC = () => {
   return (
-    <div style={{
-      minHeight: '100vh',
-      padding: '2rem',
-      background: 'linear-gradient(to bottom, #fafafa, #d9d9d9, #0b0e23)',
-      backgroundImage: 'radial-gradient(circle at top, #ffffff 10%, transparent 30%), linear-gradient(to bottom, #fafafa, #d9d9d9, #0b0e23)',
-      color: '#1a1a1a',
-      fontFamily: 'sans-serif'
-    }}>
-      <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>
+    <div
+      style={{
+        minHeight: '100vh',
+        padding: '2rem',
+        backgroundImage: `
+          radial-gradient(circle at top, #ffffff 10%, transparent 30%),
+          linear-gradient(to bottom, #fafafa, #d9d9d9, #0b0e23)
+        `,
+        color: '#1a1a1a',
+        fontFamily: 'sans-serif',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      }}
+    >
+      <h1
+        style={{
+          fontSize: '2.75rem',
+          fontWeight: 'bold',
+          marginBottom: '2rem',
+          textAlign: 'center',
+          color: '#0b0e23',
+        }}
+      >
         About This Project
       </h1>
-      <p style={{ maxWidth: '800px', lineHeight: '1.6', marginBottom: '1.5rem' }}>
-        This freelance job escrow system was created during the 2025 Bolt Hackathon, with smart contracts generated via Bolt.new and further enhanced with additional security and real-world logic.
-      </p>
-      <p style={{ maxWidth: '800px', lineHeight: '1.6', marginBottom: '1.5rem' }}>
-        Custom modifications include one-time funding logic, fallback mechanisms for rejected work, and timeout-based payout options to ensure funds are never stuck.
-      </p>
-      <p style={{ maxWidth: '800px', lineHeight: '1.6', marginBottom: '1.5rem' }}>
-        I wanted this build to reflect a commitment to fairness and usability — for both freelancers and clients. It blends clean automation with thoughtful protections.
-      </p>
-      <div style={{
-        marginTop: '2rem',
-        background: '#ffeedd',
-        padding: '1rem',
-        borderRadius: '6px'
-      }}>
-        <h2 style={{ marginBottom: '0.5rem' }}>⚠️ Style Preview Disclaimer</h2>
-        <p>
-          Tailwind styling is present in the codebase but may not be rendered in Bolt’s live preview. Exporting the project or running locally will show the full visual design.
+
+      <div
+        style={{
+          backgroundColor: 'rgba(255, 255, 255, 0.85)',
+          maxWidth: '850px',
+          padding: '2rem',
+          borderRadius: '1rem',
+          boxShadow: '0 8px 20px rgba(0,0,0,0.15)',
+          backdropFilter: 'blur(4px)',
+        }}
+      >
+        <p style={{ lineHeight: '1.7', marginBottom: '1.5rem' }}>
+          This freelance job escrow system was created during the 2025 Bolt Hackathon, with smart contracts generated via Bolt.new and further enhanced with additional security and real-world logic.
         </p>
+        <p style={{ lineHeight: '1.7', marginBottom: '1.5rem' }}>
+          Custom modifications include one-time funding logic, fallback mechanisms for rejected work, and timeout-based payout options to ensure funds are never stuck.
+        </p>
+        <p style={{ lineHeight: '1.7', marginBottom: '1.5rem' }}>
+          I wanted this build to reflect a commitment to fairness and usability — for both freelancers and clients. It blends clean automation with thoughtful protections.
+        </p>
+
+        <div
+          style={{
+            background: '#ffeedd',
+            padding: '1rem',
+            borderRadius: '0.75rem',
+            marginTop: '2rem',
+            border: '1px solid #e0c0a0',
+          }}
+        >
+          <h2 style={{ marginBottom: '0.5rem' }}>⚠️ Style Preview Disclaimer</h2>
+          <p>
+            Tailwind styling is present in the codebase but may not be rendered in Bolt’s live preview. Exporting the project or running locally will show the full visual design.
+          </p>
+        </div>
       </div>
     </div>
   );
