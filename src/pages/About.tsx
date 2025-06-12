@@ -40,11 +40,11 @@ const About: React.FC = () => {
   }}
 >
   <p style={{ lineHeight: '1.7', marginBottom: '2rem' }}>
-    <strong>WorkSecure</strong> was birthed June 11, 2025 during the world’s largest hackathon hosted by Devpost, using <strong>Bolt.new</strong> to scaffold the original contracts and interface.
+    <strong>SecureWork</strong> build using Bolt.new on June 11, 2025 during the world’s largest hackathon hosted by Devpost.
   </p>
 
   <p style={{ lineHeight: '1.7', marginBottom: '2rem' }}>
-    It was then refined with handcrafted logic to improve usability and protection — including one-time funding logic, fallback mechanisms for rejected work, and timeout-based payout options to ensure funds are never stuck.
+    This project was created with Bolt.new and then was refined with handcrafted logic to improve usability and protection inside the smart contracts— including one-time funding logic, fallback mechanisms for rejected work, and timeout-based payout options to ensure funds are never stuck.
   </p>
 
   <p style={{ lineHeight: '1.7', marginBottom: '2.5rem' }}>
