@@ -5,7 +5,8 @@ const About: React.FC = () => {
     <div style={{
       minHeight: '100vh',
       padding: '2rem',
-      background: 'linear-gradient(to bottom, #f0f0f0, #b6a36d, #2b1c47)',
+      background: 'linear-gradient(to bottom, #fafafa, #d9d9d9, #0b0e23)',
+      backgroundImage: 'radial-gradient(circle at top, #ffffff 10%, transparent 30%), linear-gradient(to bottom, #fafafa, #d9d9d9, #0b0e23)',
       color: '#1a1a1a',
       fontFamily: 'sans-serif'
     }}>
