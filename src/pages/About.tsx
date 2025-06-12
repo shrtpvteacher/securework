@@ -56,7 +56,7 @@ const About: React.FC = () => {
             style={{ display: 'inline-block', textDecoration: 'none' }}
           >
             <img
-              src="https://www.bolt.new/seal-light.svg"href="https://bolt.new"
+              src="https://www.bolt.new/seal-light.svg"
               alt="Built with Bolt.new"
               style={{ height: '40px' }}
             />
