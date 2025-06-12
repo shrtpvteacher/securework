@@ -49,17 +49,6 @@ const About: React.FC = () => {
           I wanted this build to reflect a commitment to fairness and usability — for both freelancers and clients. It blends clean automation with thoughtful protections.
         </p>
 
-        <div
-          style={{
-            background: '#ffeedd',
-            padding: '1rem',
-            borderRadius: '0.75rem',
-            marginTop: '2rem',
-            border: '1px solid #e0c0a0',
-          }}
-        >
-        
-        </div>
       </div>
     </div>
   );
