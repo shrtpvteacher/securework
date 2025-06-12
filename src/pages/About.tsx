@@ -58,10 +58,7 @@ const About: React.FC = () => {
             border: '1px solid #e0c0a0',
           }}
         >
-          <h2 style={{ marginBottom: '0.5rem' }}>⚠️ Style Preview Disclaimer</h2>
-          <p>
-            Tailwind styling is present in the codebase but may not be rendered in Bolt’s live preview. Exporting the project or running locally will show the full visual design.
-          </p>
+        
         </div>
       </div>
     </div>
