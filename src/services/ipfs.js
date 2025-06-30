@@ -11,19 +11,7 @@ const ipfsClient = create({
   }
 });
 
-export interface JobMetadata {
-  title: string;
-  description: string;
-  requirements: string[];
-  deliverables: string[];
-  price: string;
-  clientAddress: string;
-  freelancerAddress: string;
-  createdAt: string;
-  jobId?: string;
-}
-
-export const uploadJobMetadata = async (metadata: JobMetadata): Promise<string> => {
+export const uploadJobMetadata = async (metadata) => {
   try {
     if (!config.pinataJWT) {
       throw new Error('Pinata JWT not configured');
@@ -46,7 +34,7 @@ export const uploadJobMetadata = async (metadata: JobMetadata): Promise<string> 
   }
 };
 
-export const getJobMetadata = async (ipfsHash: string): Promise<JobMetadata> => {
+export const getJobMetadata = async (ipfsHash) => {
   try {
     const response = await fetch(`https://gateway.pinata.cloud/ipfs/${ipfsHash}`);
     
@@ -62,7 +50,7 @@ export const getJobMetadata = async (ipfsHash: string): Promise<JobMetadata> => 
   }
 };
 
-export const uploadWorkFiles = async (files: File[]): Promise<string> => {
+export const uploadWorkFiles = async (files) => {
   try {
     if (!config.pinataJWT) {
       throw new Error('Pinata JWT not configured');

@@ -31,7 +31,7 @@ const JOB_ESCROW_ABI = [
 
 export const useContract = () => {
   const { provider, signer } = useWallet();
-  const [factoryContract, setFactoryContract] = useState<ethers.Contract | null>(null);
+  const [factoryContract, setFactoryContract] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -45,7 +45,7 @@ export const useContract = () => {
     }
   }, [provider]);
 
-  const createJob = async (freelancerAddress: string, ipfsHash: string, jobAmount: string) => {
+  const createJob = async (freelancerAddress, ipfsHash, jobAmount) => {
     if (!factoryContract || !signer) throw new Error('Contract not initialized');
     
     setIsLoading(true);
@@ -64,7 +64,7 @@ export const useContract = () => {
       const receipt = await tx.wait();
       
       // Parse the JobCreated event
-      const event = receipt.logs.find((log: any) => {
+      const event = receipt.logs.find((log) => {
         try {
           const parsed = contractWithSigner.interface.parseLog(log);
           return parsed?.name === 'JobCreated';
@@ -88,7 +88,7 @@ export const useContract = () => {
     }
   };
 
-  const getJobContract = (jobContractAddress: string) => {
+  const getJobContract = (jobContractAddress) => {
     if (!provider) throw new Error('Provider not initialized');
     
     return new ethers.Contract(
@@ -98,7 +98,7 @@ export const useContract = () => {
     );
   };
 
-  const getJobInfo = async (jobId: string) => {
+  const getJobInfo = async (jobId) => {
     if (!factoryContract) throw new Error('Factory contract not initialized');
     
     try {
@@ -118,31 +118,31 @@ export const useContract = () => {
     }
   };
 
-  const getClientJobs = async (clientAddress: string) => {
+  const getClientJobs = async (clientAddress) => {
     if (!factoryContract) throw new Error('Factory contract not initialized');
     
     try {
       const jobIds = await factoryContract.getClientJobs(clientAddress);
-      return jobIds.map((id: any) => id.toString());
+      return jobIds.map((id) => id.toString());
     } catch (error) {
       console.error('Error getting client jobs:', error);
       throw error;
     }
   };
 
-  const getFreelancerJobs = async (freelancerAddress: string) => {
+  const getFreelancerJobs = async (freelancerAddress) => {
     if (!factoryContract) throw new Error('Factory contract not initialized');
     
     try {
       const jobIds = await factoryContract.getFreelancerJobs(freelancerAddress);
-      return jobIds.map((id: any) => id.toString());
+      return jobIds.map((id) => id.toString());
     } catch (error) {
       console.error('Error getting freelancer jobs:', error);
       throw error;
     }
   };
 
-  const acceptJob = async (jobContractAddress: string) => {
+  const acceptJob = async (jobContractAddress) => {
     if (!signer) throw new Error('Signer not available');
     
     setIsLoading(true);
@@ -156,7 +156,7 @@ export const useContract = () => {
     }
   };
 
-  const startWork = async (jobContractAddress: string) => {
+  const startWork = async (jobContractAddress) => {
     if (!signer) throw new Error('Signer not available');
     
     setIsLoading(true);
@@ -170,7 +170,7 @@ export const useContract = () => {
     }
   };
 
-  const submitWork = async (jobContractAddress: string, workHash: string) => {
+  const submitWork = async (jobContractAddress, workHash) => {
     if (!signer) throw new Error('Signer not available');
     
     setIsLoading(true);
@@ -184,7 +184,7 @@ export const useContract = () => {
     }
   };
 
-  const approveWork = async (jobId: string) => {
+  const approveWork = async (jobId) => {
     if (!factoryContract || !signer) throw new Error('Contract not initialized');
     
     setIsLoading(true);

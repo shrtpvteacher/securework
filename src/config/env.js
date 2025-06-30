@@ -31,7 +31,7 @@ export const validateConfig = () => {
     'factoryContractAddress'
   ];
   
-  const missing = required.filter(key => !config[key as keyof typeof config]);
+  const missing = required.filter(key => !config[key]);
   
   if (missing.length > 0) {
     console.warn('Missing environment variables:', missing);

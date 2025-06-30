@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Shield, Menu, X, Wallet } from 'lucide-react';
+import { Shield, Menu, X } from 'lucide-react';
 import WalletConnect from './WalletConnect';
 
-
-const Navbar: React.FC = () => {
+const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
@@ -15,7 +14,7 @@ const Navbar: React.FC = () => {
     { path: '/about', label: 'About' },
   ];
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path) => location.pathname === path;
 
   return (
     <nav className="bg-white shadow-lg border-b border-gray-200 sticky top-0 z-50">

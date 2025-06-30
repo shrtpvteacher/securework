@@ -1,33 +1,6 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 
-export interface Job {
-  id: string;
-  title: string;
-  description: string;
-  price: string;
-  clientAddress: string;
-  freelancerAddress: string;
-  status: 'created' | 'funded' | 'accepted' | 'in_progress' | 'submitted' | 'reviewing' | 'completed' | 'disputed';
-  createdAt: Date;
-  ipfsHash?: string;
-  contractAddress?: string;
-  workSubmissionHash?: string;
-  aiReviewResult?: {
-    passed: boolean;
-    feedback: string;
-    score: number;
-  };
-}
-
-interface JobContextType {
-  jobs: Job[];
-  addJob: (job: Job) => void;
-  updateJob: (jobId: string, updates: Partial<Job>) => void;
-  getJobsByRole: (address: string, role: 'client' | 'freelancer') => Job[];
-  getJobById: (jobId: string) => Job | undefined;
-}
-
-const JobContext = createContext<JobContextType | undefined>(undefined);
+const JobContext = createContext(undefined);
 
 export const useJobs = () => {
   const context = useContext(JobContext);
@@ -37,12 +10,8 @@ export const useJobs = () => {
   return context;
 };
 
-interface JobProviderProps {
-  children: ReactNode;
-}
-
-export const JobProvider: React.FC<JobProviderProps> = ({ children }) => {
-  const [jobs, setJobs] = useState<Job[]>([
+export const JobProvider = ({ children }) => {
+  const [jobs, setJobs] = useState([
     // Mock data for demonstration
     {
       id: '1',
@@ -58,17 +27,17 @@ export const JobProvider: React.FC<JobProviderProps> = ({ children }) => {
     }
   ]);
 
-  const addJob = (job: Job) => {
+  const addJob = (job) => {
     setJobs(prev => [...prev, job]);
   };
 
-  const updateJob = (jobId: string, updates: Partial<Job>) => {
+  const updateJob = (jobId, updates) => {
     setJobs(prev => prev.map(job => 
       job.id === jobId ? { ...job, ...updates } : job
     ));
   };
 
-  const getJobsByRole = (address: string, role: 'client' | 'freelancer') => {
+  const getJobsByRole = (address, role) => {
     return jobs.filter(job => 
       role === 'client' 
         ? job.clientAddress.toLowerCase() === address.toLowerCase()
@@ -76,7 +45,7 @@ export const JobProvider: React.FC<JobProviderProps> = ({ children }) => {
     );
   };
 
-  const getJobById = (jobId: string) => {
+  const getJobById = (jobId) => {
     return jobs.find(job => job.id === jobId);
   };
 

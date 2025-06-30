@@ -1,16 +1,10 @@
 import { config } from '../config/env';
 
-export interface DeliveryResult {
-  success: boolean;
-  downloadUrl?: string;
-  error?: string;
-}
-
 export const deliverWorkFiles = async (
-  ipfsHash: string,
-  clientEmail: string,
-  jobTitle: string
-): Promise<DeliveryResult> => {
+  ipfsHash,
+  clientEmail,
+  jobTitle
+) => {
   try {
     if (!config.dropboxAccessToken) {
       throw new Error('Dropbox access token not configured');
@@ -43,10 +37,10 @@ export const deliverWorkFiles = async (
 };
 
 export const sendNotificationEmail = async (
-  to: string,
-  subject: string,
-  message: string
-): Promise<boolean> => {
+  to,
+  subject,
+  message
+) => {
   try {
     // In a real implementation, this would use an email service like SendGrid
     // For demo purposes, we'll just log the email

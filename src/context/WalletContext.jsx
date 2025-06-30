@@ -1,17 +1,7 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import { ethers } from 'ethers';
 
-interface WalletContextType {
-  account: string | null;
-  isConnected: boolean;
-  balance: string;
-  connectWallet: () => Promise<void>;
-  disconnectWallet: () => void;
-  provider: ethers.BrowserProvider | null;
-  signer: ethers.Signer | null;
-}
-
-const WalletContext = createContext<WalletContextType | undefined>(undefined);
+const WalletContext = createContext(undefined);
 
 export const useWallet = () => {
   const context = useContext(WalletContext);
@@ -21,15 +11,11 @@ export const useWallet = () => {
   return context;
 };
 
-interface WalletProviderProps {
-  children: ReactNode;
-}
-
-export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
-  const [account, setAccount] = useState<string | null>(null);
-  const [balance, setBalance] = useState<string>('0');
-  const [provider, setProvider] = useState<ethers.BrowserProvider | null>(null);
-  const [signer, setSigner] = useState<ethers.Signer | null>(null);
+export const WalletProvider = ({ children }) => {
+  const [account, setAccount] = useState(null);
+  const [balance, setBalance] = useState('0');
+  const [provider, setProvider] = useState(null);
+  const [signer, setSigner] = useState(null);
 
   const connectWallet = async () => {
     if (typeof window.ethereum !== 'undefined') {
@@ -84,7 +70,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     checkConnection();
 
     if (typeof window.ethereum !== 'undefined') {
-      window.ethereum.on('accountsChanged', (accounts: string[]) => {
+      window.ethereum.on('accountsChanged', (accounts) => {
         if (accounts.length === 0) {
           disconnectWallet();
         } else {

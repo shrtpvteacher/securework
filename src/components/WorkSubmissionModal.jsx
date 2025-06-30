@@ -1,25 +1,16 @@
 import React, { useState } from 'react';
 import { X, Upload, FileText, Brain, CheckCircle, XCircle, Loader } from 'lucide-react';
-import { Job, useJobs } from '../context/JobContext';
+import { useJobs } from '../context/JobContext';
 
-interface WorkSubmissionModalProps {
-  job: Job;
-  onClose: () => void;
-}
-
-const WorkSubmissionModal: React.FC<WorkSubmissionModalProps> = ({ job, onClose }) => {
+const WorkSubmissionModal = ({ job, onClose }) => {
   const { updateJob } = useJobs();
   const [step, setStep] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
-  const [files, setFiles] = useState<File[]>([]);
+  const [files, setFiles] = useState([]);
   const [workDescription, setWorkDescription] = useState('');
-  const [aiReview, setAiReview] = useState<{
-    passed: boolean;
-    feedback: string;
-    score: number;
-  } | null>(null);
+  const [aiReview, setAiReview] = useState(null);
 
-  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileUpload = (event) => {
     const selectedFiles = Array.from(event.target.files || []);
     setFiles(selectedFiles);
   };

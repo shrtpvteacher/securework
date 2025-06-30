@@ -4,12 +4,12 @@ import { useWallet } from '../context/WalletContext';
 import { useJobs } from '../context/JobContext';
 import JobCard from '../components/JobCard';
 
-const FreelancerDashboard: React.FC = () => {
+const FreelancerDashboard = () => {
   const { account, isConnected } = useWallet();
   const { jobs, getJobsByRole } = useJobs();
-  const [activeTab, setActiveTab] = useState<'available' | 'my-jobs' | 'completed'>('available');
+  const [activeTab, setActiveTab] = useState('available');
   const [searchTerm, setSearchTerm] = useState('');
-  const [priceFilter, setPriceFilter] = useState<'all' | 'low' | 'medium' | 'high'>('all');
+  const [priceFilter, setPriceFilter] = useState('all');
 
   if (!isConnected) {
     return (
@@ -23,9 +23,9 @@ const FreelancerDashboard: React.FC = () => {
     );
   }
 
-  const myJobs = getJobsByRole(account!, 'freelancer');
+  const myJobs = getJobsByRole(account, 'freelancer');
   const availableJobs = jobs.filter(job => 
-    job.freelancerAddress.toLowerCase() !== account!.toLowerCase() &&
+    job.freelancerAddress.toLowerCase() !== account.toLowerCase() &&
     ['created', 'funded'].includes(job.status)
   );
   const completedJobs = myJobs.filter(job => job.status === 'completed');
@@ -137,7 +137,7 @@ const FreelancerDashboard: React.FC = () => {
           ].map((tab) => (
             <button
               key={tab.key}
-              onClick={() => setActiveTab(tab.key as any)}
+              onClick={() => setActiveTab(tab.key)}
               className={`px-4 py-2 rounded-md font-medium transition-all duration-200 ${
                 activeTab === tab.key
                   ? 'bg-white text-blue-600 shadow-sm'
@@ -170,7 +170,7 @@ const FreelancerDashboard: React.FC = () => {
                 <Filter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
                 <select
                   value={priceFilter}
-                  onChange={(e) => setPriceFilter(e.target.value as any)}
+                  onChange={(e) => setPriceFilter(e.target.value)}
                   className="pl-10 pr-8 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none bg-white min-w-[150px]"
                 >
                   <option value="all">All Prices</option>

@@ -3,11 +3,7 @@ import { X, Upload, DollarSign, User, FileText, Loader } from 'lucide-react';
 import { useJobs } from '../context/JobContext';
 import { useWallet } from '../context/WalletContext';
 
-interface CreateJobModalProps {
-  onClose: () => void;
-}
-
-const CreateJobModal: React.FC<CreateJobModalProps> = ({ onClose }) => {
+const CreateJobModal = ({ onClose }) => {
   const { addJob } = useJobs();
   const { account } = useWallet();
   const [step, setStep] = useState(1);
@@ -21,28 +17,28 @@ const CreateJobModal: React.FC<CreateJobModalProps> = ({ onClose }) => {
     deliverables: ['']
   });
 
-  const handleInputChange = (field: string, value: string) => {
+  const handleInputChange = (field, value) => {
     setFormData(prev => ({
       ...prev,
       [field]: value
     }));
   };
 
-  const handleArrayChange = (field: 'requirements' | 'deliverables', index: number, value: string) => {
+  const handleArrayChange = (field, index, value) => {
     setFormData(prev => ({
       ...prev,
       [field]: prev[field].map((item, i) => i === index ? value : item)
     }));
   };
 
-  const addArrayItem = (field: 'requirements' | 'deliverables') => {
+  const addArrayItem = (field) => {
     setFormData(prev => ({
       ...prev,
       [field]: [...prev[field], '']
     }));
   };
 
-  const removeArrayItem = (field: 'requirements' | 'deliverables', index: number) => {
+  const removeArrayItem = (field, index) => {
     setFormData(prev => ({
       ...prev,
       [field]: prev[field].filter((_, i) => i !== index)
@@ -60,9 +56,9 @@ const CreateJobModal: React.FC<CreateJobModalProps> = ({ onClose }) => {
       title: formData.title,
       description: formData.description,
       price: formData.price,
-      clientAddress: account!,
+      clientAddress: account,
       freelancerAddress: formData.freelancerAddress,
-      status: 'created' as const,
+      status: 'created',
       createdAt: new Date(),
       ipfsHash: `QmHash${Date.now()}`,
       contractAddress: `0x${Math.random().toString(16).substr(2, 40)}`

@@ -2,10 +2,10 @@ import React from 'react';
 import { Wallet, LogOut, Copy } from 'lucide-react';
 import { useWallet } from '../context/WalletContext';
 
-const WalletConnect: React.FC = () => {
+const WalletConnect = () => {
   const { account, isConnected, balance, connectWallet, disconnectWallet } = useWallet();
 
-  const formatAddress = (address: string) => {
+  const formatAddress = (address) => {
     return `${address.slice(0, 6)}...${address.slice(-4)}`;
   };
 
@@ -33,7 +33,7 @@ const WalletConnect: React.FC = () => {
         <div className="flex items-center space-x-2">
           <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
           <span className="text-sm font-medium text-gray-700">
-            {formatAddress(account!)}
+            {formatAddress(account)}
           </span>
           <button
             onClick={copyAddress}

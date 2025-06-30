@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Shield, Zap, Brain, FileText, CheckCircle, ArrowRight, Star, Users, DollarSign } from 'lucide-react';
 
-const HomePage: React.FC = () => {
+const HomePage = () => {
   const features = [
     {
       icon: Shield,

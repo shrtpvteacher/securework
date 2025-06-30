@@ -5,11 +5,11 @@ import { useJobs } from '../context/JobContext';
 import CreateJobModal from '../components/CreateJobModal';
 import JobCard from '../components/JobCard';
 
-const ClientDashboard: React.FC = () => {
+const ClientDashboard = () => {
   const { account, isConnected } = useWallet();
   const { getJobsByRole } = useJobs();
   const [showCreateModal, setShowCreateModal] = useState(false);
-  const [activeTab, setActiveTab] = useState<'all' | 'active' | 'completed'>('all');
+  const [activeTab, setActiveTab] = useState('all');
 
   if (!isConnected) {
     return (
@@ -23,7 +23,7 @@ const ClientDashboard: React.FC = () => {
     );
   }
 
-  const allJobs = getJobsByRole(account!, 'client');
+  const allJobs = getJobsByRole(account, 'client');
   const activeJobs = allJobs.filter(job => !['completed', 'disputed'].includes(job.status));
   const completedJobs = allJobs.filter(job => ['completed'].includes(job.status));
 
@@ -109,7 +109,7 @@ const ClientDashboard: React.FC = () => {
           ].map((tab) => (
             <button
               key={tab.key}
-              onClick={() => setActiveTab(tab.key as any)}
+              onClick={() => setActiveTab(tab.key)}
               className={`px-4 py-2 rounded-md font-medium transition-all duration-200 ${
                 activeTab === tab.key
                   ? 'bg-white text-blue-600 shadow-sm'

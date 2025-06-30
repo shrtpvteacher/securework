@@ -1,6 +1,6 @@
 import React from 'react';
 
-const About: React.FC = () => {
+const About = () => {
   return (
     <div
       style={{
@@ -37,7 +37,7 @@ const About: React.FC = () => {
         }}
       >
         <p style={{ lineHeight: '1.7', marginBottom: '2rem' }}>
-          <strong>SecureWork</strong> was built using Bolt.new on June 11, 2025 during the world’s largest hackathon hosted by Devpost.
+          <strong>SecureWork</strong> was built using Bolt.new on June 11, 2025 during the world's largest hackathon hosted by Devpost.
         </p>
 
         <p style={{ lineHeight: '1.7', marginBottom: '2rem' }}>

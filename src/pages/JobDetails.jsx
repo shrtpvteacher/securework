@@ -5,13 +5,13 @@ import { useJobs } from '../context/JobContext';
 import { useWallet } from '../context/WalletContext';
 import WorkSubmissionModal from '../components/WorkSubmissionModal';
 
-const JobDetails: React.FC = () => {
-  const { jobId } = useParams<{ jobId: string }>();
+const JobDetails = () => {
+  const { jobId } = useParams();
   const { getJobById, updateJob } = useJobs();
   const { account } = useWallet();
   const [showWorkSubmission, setShowWorkSubmission] = useState(false);
 
-  const job = getJobById(jobId!);
+  const job = getJobById(jobId);
 
   if (!job) {
     return (
@@ -31,7 +31,7 @@ const JobDetails: React.FC = () => {
   const isClient = account?.toLowerCase() === job.clientAddress.toLowerCase();
   const isFreelancer = account?.toLowerCase() === job.freelancerAddress.toLowerCase();
 
-  const getStatusColor = (status: string) => {
+  const getStatusColor = (status) => {
     switch (status) {
       case 'created':
         return 'bg-gray-100 text-gray-800';
@@ -54,11 +54,11 @@ const JobDetails: React.FC = () => {
     }
   };
 
-  const formatStatus = (status: string) => {
+  const formatStatus = (status) => {
     return status.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase());
   };
 
-  const formatAddress = (address: string) => {
+  const formatAddress = (address) => {
     return `${address.slice(0, 6)}...${address.slice(-4)}`;
   };
 

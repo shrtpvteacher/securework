@@ -1,23 +1,10 @@
 import { config } from '../config/env';
-import { JobMetadata } from './ipfs';
-
-export interface AIReviewResult {
-  passed: boolean;
-  score: number;
-  feedback: string;
-  details: {
-    requirementsMet: boolean;
-    codeQuality: number;
-    documentation: number;
-    completeness: number;
-  };
-}
 
 export const reviewWorkSubmission = async (
-  jobMetadata: JobMetadata,
-  workDescription: string,
-  fileContents?: string[]
-): Promise<AIReviewResult> => {
+  jobMetadata,
+  workDescription,
+  fileContents
+) => {
   try {
     if (!config.openaiApiKey) {
       throw new Error('OpenAI API key not configured');
@@ -119,7 +106,7 @@ Be thorough but fair in your evaluation. The work should pass if it meets the ba
   }
 };
 
-export const generateJobSuggestions = async (description: string): Promise<string[]> => {
+export const generateJobSuggestions = async (description) => {
   try {
     if (!config.openaiApiKey) {
       return []; // Return empty array if no API key

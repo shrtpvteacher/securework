@@ -1,15 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Calendar, DollarSign, User, ArrowRight, Clock, CheckCircle } from 'lucide-react';
-import { Job } from '../context/JobContext';
 
-interface JobCardProps {
-  job: Job;
-  userRole: 'client' | 'freelancer' | 'visitor';
-}
-
-const JobCard: React.FC<JobCardProps> = ({ job, userRole }) => {
-  const getStatusColor = (status: string) => {
+const JobCard = ({ job, userRole }) => {
+  const getStatusColor = (status) => {
     switch (status) {
       case 'created':
         return 'bg-gray-100 text-gray-800';
@@ -32,15 +26,15 @@ const JobCard: React.FC<JobCardProps> = ({ job, userRole }) => {
     }
   };
 
-  const formatStatus = (status: string) => {
+  const formatStatus = (status) => {
     return status.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase());
   };
 
-  const formatAddress = (address: string) => {
+  const formatAddress = (address) => {
     return `${address.slice(0, 6)}...${address.slice(-4)}`;
   };
 
-  const getStatusIcon = (status: string) => {
+  const getStatusIcon = (status) => {
     switch (status) {
       case 'completed':
         return <CheckCircle className="h-4 w-4" />;
