@@ -115,7 +115,7 @@ const About = () => {
               something truly production-ready.
             </p>
 
-            {/* Bolt.new Badge */}
+            {/* Official Bolt.new Badge */}
             <div className="text-center">
               <a
                 href="https://bolt.new"
@@ -123,16 +123,30 @@ const About = () => {
                 rel="noopener noreferrer"
                 className="inline-block group"
               >
-                <div className="bg-gradient-to-r from-blue-600 to-emerald-600 p-6 rounded-2xl transform group-hover:scale-105 transition-all duration-300 shadow-lg group-hover:shadow-xl">
-                  <img
-                    src="https://raw.githubusercontent.com/openbolt/bolt-badge/main/seal-light.svg"
-                    alt="Bolt.new badge"
-                    className="h-12 mx-auto mb-3"
-                  />
-                  <div className="text-white font-semibold text-lg">
-                    Proudly Built with Bolt.new
+                <div className="bg-gradient-to-r from-blue-600 to-emerald-600 p-8 rounded-2xl transform group-hover:scale-105 transition-all duration-300 shadow-lg group-hover:shadow-xl">
+                  <svg
+                    width="80"
+                    height="80"
+                    viewBox="0 0 100 100"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="mx-auto mb-4"
+                  >
+                    <circle cx="50" cy="50" r="50" fill="white"/>
+                    <path
+                      d="M30 35L45 20L70 45L55 60L45 50L35 60L30 35Z"
+                      fill="#3B82F6"
+                    />
+                    <path
+                      d="M45 50L55 40L70 55L55 70L45 60L55 50L45 50Z"
+                      fill="#10B981"
+                    />
+                    <circle cx="50" cy="50" r="3" fill="#1F2937"/>
+                  </svg>
+                  <div className="text-white font-bold text-xl mb-2">
+                    Built with Bolt.new
                   </div>
-                  <div className="text-blue-100 text-sm mt-1">
+                  <div className="text-blue-100 text-sm">
                     Rapid development meets thoughtful engineering
                   </div>
                 </div>
