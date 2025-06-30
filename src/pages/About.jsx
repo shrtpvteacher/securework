@@ -1,5 +1,4 @@
 import React from 'react';
-import { Shield, Zap, Users, Award } from 'lucide-react';
 
 const About = () => {
   return (
@@ -16,10 +15,9 @@ const About = () => {
         </div>
       </div>
 
-      {/* Main Content */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        {/* Story Section */}
-        <div className="mb-16">
+      {/* Row 1 - White Background */}
+      <div className="bg-white py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Our Story</h2>
           <div className="prose prose-lg max-w-none">
             <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -41,105 +39,106 @@ const About = () => {
             </p>
           </div>
         </div>
+      </div>
 
-        {/* Features Grid */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">What Makes Us Different</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl">
-              <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mb-4">
-                <Shield className="h-6 w-6 text-white" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Blockchain Security</h3>
-              <p className="text-gray-700">
-                Smart contracts ensure funds are protected with immutable escrow logic and automated release mechanisms.
-              </p>
-            </div>
-
-            <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 p-8 rounded-2xl">
-              <div className="w-12 h-12 bg-emerald-600 rounded-xl flex items-center justify-center mb-4">
-                <Zap className="h-6 w-6 text-white" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">AI-Powered Verification</h3>
-              <p className="text-gray-700">
-                Advanced AI reviews work submissions to ensure quality standards are met before payment release.
-              </p>
-            </div>
-
-            <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-2xl">
-              <div className="w-12 h-12 bg-purple-600 rounded-xl flex items-center justify-center mb-4">
-                <Users className="h-6 w-6 text-white" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Fair for Everyone</h3>
-              <p className="text-gray-700">
-                Built-in protections for both clients and freelancers with dispute resolution and timeout mechanisms.
-              </p>
-            </div>
-
-            <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-8 rounded-2xl">
-              <div className="w-12 h-12 bg-orange-600 rounded-xl flex items-center justify-center mb-4">
-                <Award className="h-6 w-6 text-white" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Production Ready</h3>
-              <p className="text-gray-700">
-                Enhanced beyond the hackathon with real-world security features and edge case handling.
-              </p>
-            </div>
+      {/* Row 2 - Gray Background */}
+      <div className="bg-gray-100 py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">What Makes Us Different</h2>
+          <div className="prose prose-lg max-w-none">
+            <p className="text-lg text-gray-700 leading-relaxed mb-6">
+              Unlike traditional freelance platforms that rely on centralized dispute resolution and manual verification processes, 
+              SecureWork leverages cutting-edge blockchain technology and artificial intelligence to create a truly autonomous 
+              and trustworthy ecosystem.
+            </p>
+            
+            <p className="text-lg text-gray-700 leading-relaxed mb-6">
+              Our smart contracts provide immutable escrow protection, ensuring that funds are only released when work meets 
+              the agreed-upon standards. The AI verification system reviews submissions against original requirements, 
+              providing objective quality assessment that eliminates bias and reduces disputes.
+            </p>
+            
+            <p className="text-lg text-gray-700 leading-relaxed">
+              We've also implemented sophisticated fallback mechanisms that protect both parties: if AI rejects work, 
+              clients can override the decision, and if no action is taken within 30 days, freelancers can claim their payment. 
+              This ensures fairness and prevents funds from being permanently locked.
+            </p>
           </div>
         </div>
+      </div>
 
-        {/* Mission Statement */}
-        <div className="bg-gray-50 rounded-3xl p-12 mb-16 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Mission</h2>
-          <p className="text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto">
-            To create a world where freelancers and clients can work together with complete trust, 
-            knowing that quality work will always be fairly compensated and funds will never be at risk.
-          </p>
+      {/* Row 3 - Blue to Green Gradient Background */}
+      <div className="bg-gradient-to-r from-blue-600 to-emerald-600 py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-white mb-8 text-center">Our Mission</h2>
+          <div className="prose prose-lg max-w-none">
+            <p className="text-lg text-blue-100 leading-relaxed mb-6">
+              To create a world where freelancers and clients can work together with complete trust, knowing that quality work 
+              will always be fairly compensated and funds will never be at risk. We believe that technology should eliminate 
+              friction, not create it.
+            </p>
+            
+            <p className="text-lg text-blue-100 leading-relaxed mb-6">
+              Our vision extends beyond just payments and escrow. We're building a comprehensive ecosystem that includes 
+              reputation systems, skill verification, and automated project management tools that make freelancing more 
+              efficient and rewarding for everyone involved.
+            </p>
+            
+            <p className="text-lg text-blue-100 leading-relaxed">
+              By combining the transparency of blockchain with the intelligence of AI, we're not just solving today's problems—
+              we're creating the foundation for the future of work itself.
+            </p>
+          </div>
         </div>
+      </div>
 
-        {/* Technology Stack */}
-        <div className="mb-16">
+      {/* Row 4 - White Background */}
+      <div className="bg-white py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Built With Excellence</h2>
-          <div className="bg-gradient-to-r from-blue-600 to-emerald-600 rounded-2xl p-8 text-white">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-              <div>
-                <h3 className="text-lg font-semibold mb-2">Smart Contracts</h3>
-                <p className="text-blue-100">Solidity, OpenZeppelin, Hardhat</p>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold mb-2">Frontend</h3>
-                <p className="text-blue-100">React, Tailwind CSS, Ethers.js</p>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold mb-2">Infrastructure</h3>
-                <p className="text-blue-100">IPFS, AI Verification, Web3</p>
-              </div>
+          <div className="prose prose-lg max-w-none">
+            <p className="text-lg text-gray-700 leading-relaxed mb-6">
+              SecureWork is built on a foundation of proven technologies and innovative approaches. Our smart contracts 
+              are written in Solidity using OpenZeppelin's battle-tested libraries, ensuring maximum security and reliability. 
+              The frontend leverages React and modern web technologies for a seamless user experience.
+            </p>
+            
+            <p className="text-lg text-gray-700 leading-relaxed mb-6">
+              We use IPFS for decentralized storage of job metadata and work submissions, ensuring that important project 
+              information remains accessible and tamper-proof. Our AI verification system is powered by advanced language 
+              models that can understand and evaluate complex project requirements.
+            </p>
+            
+            <p className="text-lg text-gray-700 leading-relaxed mb-8">
+              Every component has been carefully selected and integrated to create a platform that is not only functional 
+              but also scalable, secure, and user-friendly. We've gone beyond the typical hackathon project to create 
+              something truly production-ready.
+            </p>
+
+            {/* Bolt.new Badge */}
+            <div className="text-center">
+              <a
+                href="https://bolt.new"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block group"
+              >
+                <div className="bg-gradient-to-r from-blue-600 to-emerald-600 p-6 rounded-2xl transform group-hover:scale-105 transition-all duration-300 shadow-lg group-hover:shadow-xl">
+                  <img
+                    src="https://raw.githubusercontent.com/openbolt/bolt-badge/main/seal-light.svg"
+                    alt="Bolt.new badge"
+                    className="h-12 mx-auto mb-3"
+                  />
+                  <div className="text-white font-semibold text-lg">
+                    Proudly Built with Bolt.new
+                  </div>
+                  <div className="text-blue-100 text-sm mt-1">
+                    Rapid development meets thoughtful engineering
+                  </div>
+                </div>
+              </a>
             </div>
           </div>
-        </div>
-
-        {/* Bolt.new Badge */}
-        <div className="text-center">
-          <a
-            href="https://bolt.new"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block group"
-          >
-            <div className="bg-gradient-to-r from-blue-600 to-emerald-600 p-6 rounded-2xl transform group-hover:scale-105 transition-all duration-300 shadow-lg group-hover:shadow-xl">
-              <img
-                src="https://raw.githubusercontent.com/openbolt/bolt-badge/main/seal-light.svg"
-                alt="Bolt.new badge"
-                className="h-12 mx-auto mb-3"
-              />
-              <div className="text-white font-semibold text-lg">
-                Proudly Built with Bolt.new
-              </div>
-              <div className="text-blue-100 text-sm mt-1">
-                Rapid development meets thoughtful engineering
-              </div>
-            </div>
-          </a>
         </div>
       </div>
     </div>
